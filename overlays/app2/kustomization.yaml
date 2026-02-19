@@ -1,10 +1,10 @@
 apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 
-namespace: app1-ahmed
+namespace: app2-anas
 
 resources:
-  - cnpg-ha.yaml   # copy of base inside overlay folder
+  - ../../base
 
 patches:
   - target:
@@ -16,4 +16,4 @@ patches:
       metadata:
         name: pg-cluster-ha
       spec:
-        instances: 1
+        instances: 3
