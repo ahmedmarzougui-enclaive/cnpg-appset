@@ -16,4 +16,4 @@ patches:
       metadata:
         name: pg-cluster-ha-nexadd
       spec:
-        instances: 4
+        instances: 1
