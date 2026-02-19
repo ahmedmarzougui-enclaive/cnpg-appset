@@ -4,8 +4,7 @@ kind: Kustomization
 namespace: app1-ahmed
 
 resources:
-  - ../../base/cnpg-ha.yaml
-
+  - ../base
 patches:
   - target:
       kind: Cluster
