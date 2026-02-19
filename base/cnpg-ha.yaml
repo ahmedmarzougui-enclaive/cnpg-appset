@@ -4,7 +4,7 @@ metadata:
   name: pg-cluster-ha
   namespace: app
 spec:
-  instances: 1   # generic, will patch per overlay
+  instances: 1  
   imageName: "ghcr.io/cloudnative-pg/postgresql:18-system-trixie"
   monitoring:
     enablePodMonitor: false   
@@ -33,36 +33,3 @@ spec:
         secretAccessKey:
           name: pgbackrest-secret
           key: AWS_SECRET_ACCESS_KEY
-
----
-apiVersion: postgresql.cnpg.io/v1
-kind: ScheduledBackup
-metadata:
-  name: pg-cluster-ha-every-15m
-  namespace: app
-spec:
-  schedule: "*/5 * * * *"
-  backupOwnerReference: self
-  cluster:
-    name: pg-cluster-ha
-
----
-apiVersion: monitoring.coreos.com/v1
-kind: PodMonitor
-metadata:
-  name: pg-cluster-ha-manual
-  namespace: app
-spec:
-  selector:
-    matchLabels:
-      cnpg.io/cluster: pg-cluster-ha
-  podMetricsEndpoints:
-    - port: metrics
-      scheme: https
-      interval: 15s
-      tlsConfig:
-        ca:
-          secret:
-            name: pg-cluster-ha-ca
-            key: ca.crt
-        serverName: pg-cluster-ha-rw
