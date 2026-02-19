@@ -4,7 +4,8 @@ kind: Kustomization
 namespace: app1-ahmed
 
 resources:
-  - ../base
+  - cnpg-ha.yaml   # copy of base inside overlay folder
+
 patches:
   - target:
       kind: Cluster
