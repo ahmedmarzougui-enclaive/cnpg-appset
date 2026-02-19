@@ -1,10 +1,11 @@
 apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 
-namespace: app2-anas
+namespace: app1-ahmed
 
 resources:
-  - ../base
+  - ../../base   # relative path to base folder inside repo
+
 patches:
   - target:
       kind: Cluster
@@ -15,4 +16,4 @@ patches:
       metadata:
         name: pg-cluster-ha
       spec:
-        instances: 3
+        instances: 1
