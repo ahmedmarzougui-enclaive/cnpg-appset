@@ -5,6 +5,7 @@ namespace: app2-anas
 
 resources:
   - ../../base
+  - namespace.yaml
 
 patches:
   - target:
