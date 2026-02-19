@@ -4,8 +4,7 @@ kind: Kustomization
 namespace: app2-anas
 
 resources:
-  - ../../base/cnpg-ha.yaml
-
+  - ../base
 patches:
   - target:
       kind: Cluster
