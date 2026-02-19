@@ -1,10 +1,11 @@
 apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 
-namespace: app2-anas
+namespace: app3-ahmed2
 
 resources:
   - ../../base
+  - namespace.yaml
 
 patches:
   - target:
