@@ -5,7 +5,6 @@ namespace: app3-ahmedtest
 
 resources:
   - ../../base
-  - namespace.yaml
 
 patches:
   - target:
