@@ -20,16 +20,4 @@ spec:
     size: 10Gi
     storageClass: gp3
     resizeInUseVolumes: true
-  backup:
-    barmanObjectStore:
-      destinationPath: s3://your-bucket/base-backup
-      s3Credentials:
-        region:
-          name: pgbackrest-secret
-          key: region
-        accessKeyId:
-          name: pgbackrest-secret
-          key: AWS_ACCESS_KEY_ID
-        secretAccessKey:
-          name: pgbackrest-secret
-          key: AWS_SECRET_ACCESS_KEY
+  
