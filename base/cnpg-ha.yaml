@@ -1,23 +1,25 @@
 apiVersion: postgresql.cnpg.io/v1
 kind: Cluster
 metadata:
-  name: pg-cluster-newwwwwwww
-  namespace: app
+  name: pg-cluster
 spec:
-  instances: 1  
+  instances: 1
   imageName: "ghcr.io/cloudnative-pg/postgresql:18-system-trixie"
+
   monitoring:
-    enablePodMonitor: false   
+    enablePodMonitor: false
     tls:
-      enabled: true           
+      enabled: true
+
   affinity:
     enablePodAntiAffinity: true
     topologyKey: "kubernetes.io/hostname"
+
   postgresql:
     parameters:
       synchronous_commit: "on"
+
   storage:
     size: 10Gi
     storageClass: gp3
     resizeInUseVolumes: true
-  
