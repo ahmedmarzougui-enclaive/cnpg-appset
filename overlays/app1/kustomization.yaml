@@ -10,11 +10,11 @@ resources:
 patches:
   - target:
       kind: Cluster
-      name: pg-cluster-ha
+      name: pg-cluster
     patch: |
       apiVersion: postgresql.cnpg.io/v1
       kind: Cluster
       metadata:
-        name: pg-cluster-ha
+        name: pg-cluster
       spec:
         instances: 1
